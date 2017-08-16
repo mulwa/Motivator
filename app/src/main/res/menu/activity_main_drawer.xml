@@ -8,18 +8,19 @@
             android:icon="@drawable/ic_menu_camera"
             android:title="Profile"/>
         <item
+            android:title="Common"
+            android:id="@+id/nav_timeline"
+            />
+        <item
             android:id="@+id/nav_setting"
             android:icon="@drawable/ic_menu_gallery"
-            android:title="Setting" />
+            android:title="Motivators" />
 
         <item
             android:id="@+id/nav_interest"
             android:icon="@drawable/ic_menu_manage"
             android:title="Interest" />
-        <item
-            android:title="Time Line"
-            android:id="@+id/nav_timeline"
-            />
+
     </group>
 
     <item android:title="Contribute">

@@ -5,7 +5,10 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
+import android.support.v7.app.AppCompatCallback;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -17,6 +20,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.mulwa.motivator.General.DividerItemDecoration;
+import com.example.mulwa.motivator.General.Functions;
 import com.example.mulwa.motivator.Login;
 import com.example.mulwa.motivator.MainActivity;
 import com.example.mulwa.motivator.Pojo.Message;
@@ -30,7 +34,7 @@ import com.google.firebase.database.FirebaseDatabase;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class Profile extends Fragment {
+public class Profile extends Fragment  {
     private FirebaseDatabase database;
     private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener mAuthListener;
@@ -38,6 +42,7 @@ public class Profile extends Fragment {
     public String UserName;
     private DatabaseReference mref;
     private RecyclerView mRecyclerView;
+    private FloatingActionButton mFab;
 
 
 
@@ -53,10 +58,27 @@ public class Profile extends Fragment {
         mRecyclerView  = view.findViewById(R.id.recy_my_messages);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         mRecyclerView.addItemDecoration(new DividerItemDecoration(getContext(),LinearLayoutManager.VERTICAL ));
-        fetchData();
+
+        mFab = view.findViewById(R.id.fab);
+        mFab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                createMessage();
+
+            }
+        });
+
 
         checkAuthentication();
         return view;
+    }
+
+    private void createMessage() {
+       Share share = new Share();
+        this.getFragmentManager().beginTransaction()
+                .replace(R.id.content_fragment,share)
+                .commit();
+
     }
 
     @Override
@@ -92,14 +114,14 @@ public class Profile extends Fragment {
                 }else{
                     startActivity(new Intent(getContext(), MainActivity.class));
                 }
-                fetchData();
+                fetchData(UserName);
             }
         };
 
 
     }
-    private void fetchData(){
-        mref = database.getReference("Messages").child("Owner").child("Christopher Mulwa");
+    private void fetchData(String username){
+        mref = database.getReference("Messages").child("Owner").child(username);
         Log.d("Ref","reference"+mref);
         FirebaseRecyclerAdapter<Message,mViewHolder> adapter = new FirebaseRecyclerAdapter<Message, mViewHolder>(
                 Message.class,

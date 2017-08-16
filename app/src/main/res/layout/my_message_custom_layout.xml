@@ -27,10 +27,11 @@
             android:layout_toRightOf="@+id/icon"
             android:padding="5dp"
             android:maxLines="2"
+            android:paddingRight="2dp"
             android:lineSpacingExtra="1.5pt"
             android:fontFamily="sans-serif-condensed"
             android:text="Google Complex"
-            android:textColor="@color/black"
+            android:textColor="@color/blackText"
             android:layout_marginLeft="5dp"
             android:textSize="18sp" />
 
