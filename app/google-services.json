@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "268849049099",
+    "firebase_url": "https://motivator-d2d5f.firebaseio.com",
+    "project_id": "motivator-d2d5f",
+    "storage_bucket": "motivator-d2d5f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:268849049099:android:a35d568fbf5c5433",
+        "android_client_info": {
+          "package_name": "com.example.mulwa.motivator"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "268849049099-rdrcf6trenav1ac1mvt3h4cuonco368g.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.mulwa.motivator",
+            "certificate_hash": "b3a1ae88b73bc7d448f8c53979d8a41d35cf2f64"
+          }
+        },
+        {
+          "client_id": "268849049099-uffb2656ts7l08qh0fisuc4i603cpf67.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBjiSGTKEDaVxMffXo2DFNQCExbT-AHL3M"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "268849049099-uffb2656ts7l08qh0fisuc4i603cpf67.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
